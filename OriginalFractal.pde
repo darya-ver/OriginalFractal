@@ -1,23 +1,23 @@
-public void setup()
+void setup()
 {
-	size(600,600);
-	//rectMode(CENTER);
+  size(700,700);
 }
-public void draw()
+void draw()
 {
-	background(0);
-	myFractal(20,0, 550, 600);
-}
-public void myFractal(int x, int y, int myLength, int myHeight)
-{
-	rect(x,y,myLength,myHeight);
-	if(myHeight > 10)
-	{
-		myFractal(x,y+myHeight/2, myLength, myHeight/2);
-		myFractal(x,y+myHeight/2, myLength/2, myHeight/2);
-	}
+  background(55);
+  repeatThing(width/2, height-20, 90, 100);
 }
 
-/*
-http://rosettacode.org/wiki/Fractal_tree#Java
-*/
+void repeatThing(int x1, int y1, double angle, double len)
+{
+  int x2 = x1 - (int)(Math.cos(Math.toRadians(angle)) * len);
+  int y2 = y1 - (int)(Math.sin(Math.toRadians(angle)) * len);
+  stroke(255,0,0);
+  line(x1, y1, x2, y2);
+  if(len > 10)
+  {
+    repeatThing(x2, y2, angle-20, len-12);
+    repeatThing(x2, y2, angle+20, len-12);
+  }
+  
+}
