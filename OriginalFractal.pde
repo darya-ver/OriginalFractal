@@ -93,10 +93,10 @@ void mousePressed()
   
 }
 
-void treeThing(int x1, int y1, double angle, double len, float strokee, int randomm, int max)
+void treeThing(int x1, int y1, float angle, double len, float strokee, int randomm, int max)
 {
-  int x2 = x1 - (int)(Math.cos(Math.toRadians(angle)) * len);
-  int y2 = y1 - (int)(Math.sin(Math.toRadians(angle)) * len);
+  int x2 = x1 - (int)(cos(radians(angle)) * len);
+  int y2 = y1 - (int)(sin(radians(angle)) * len);
   
   if(randomm % max==0)
   {
@@ -128,10 +128,10 @@ void cloudThing(int x, int y, int siz)
 	}
 }
 
-void spiralBackground(int x1, int y1, double angle, double len)
+void spiralBackground(int x1, int y1, float angle, double len)
 {
-  int x2 = x1 - (int)(Math.cos(Math.toRadians(angle)) * len);
-  int y2 = y1 - (int)(Math.sin(Math.toRadians(angle)) * len);
+  int x2 = x1 - (int)(cos(radians(angle)) * len);
+  int y2 = y1 - (int)(sin(radians(angle)) * len);
   
   stroke(102,150,255, 60);
   strokeWeight(3);
@@ -270,7 +270,7 @@ class Button
 class Hail
 {
   float myX, myY, mySpeed, myOriginalX, myOriginalY;
-  double myAngle;
+  float myAngle;
 
   Hail()
   {
@@ -278,8 +278,8 @@ class Hail
     myY = (int)(Math.random()*(height-185)) + 185;
     myOriginalX = myX;
     myOriginalY = myY;
-    double tempAngle = Math.random()*150+20;
-    myAngle = Math.toRadians(tempAngle);
+    float tempAngle = (float)Math.random()*150+20;
+    myAngle = radians(tempAngle);
     mySpeed = 10;
   }
 
@@ -292,8 +292,8 @@ class Hail
 
   void move()
   {
-    myX += Math.cos(myAngle)*mySpeed;
-    myY += Math.sin(myAngle)+mySpeed;
+    myX += cos(myAngle)*mySpeed;
+    myY += sin(myAngle)+mySpeed;
 
     if(myX > width || myY > height)
     {
@@ -307,7 +307,7 @@ class SnowFlake
 {
   int myX, myY, myOriginalX, myOriginalY;
   float mySpeed;
-  double myAngle;
+  float myAngle;
 
   SnowFlake()
   {
@@ -315,8 +315,8 @@ class SnowFlake
     myY = (int)(Math.random()*(height-185)) + 185;
     myOriginalX = myX;
     myOriginalY = myY;
-    double tempAngle = Math.random()*150+20;
-    myAngle = Math.toRadians(tempAngle);
+    float tempAngle = (float)Math.random()*150+20;
+    myAngle = radians(tempAngle);
     mySpeed = 10;
   }
 
@@ -333,8 +333,8 @@ class SnowFlake
   
   void move()
   {
-    myX+=(int)(Math.cos(myAngle)*mySpeed);
-    myY+=(int)(Math.sin(myAngle)*mySpeed);
+    myX+=(int)(cos(myAngle)*mySpeed);
+    myY+=(int)(sin(myAngle)*mySpeed);
     
     if(myX > width || myY > height)
     {
@@ -344,10 +344,10 @@ class SnowFlake
   }
 }
   
-void snoww(int x1, int y1, double angle, double len)
+void snoww(int x1, int y1, float angle, double len)
 {
-  int x2 = x1 - (int)(Math.cos(Math.toRadians(angle)) * len);
-  int y2 = y1 - (int)(Math.sin(Math.toRadians(angle)) * len);
+  int x2 = x1 - (int)(cos(radians(angle)) * len);
+  int y2 = y1 - (int)(sin(radians(angle)) * len);
     
   stroke(102,51,0);
   strokeWeight(2);
